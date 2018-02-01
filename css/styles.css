@@ -192,6 +192,7 @@ ol li {
 /* back, initially hidden pane */
 .back {
   transform: rotateY(180deg);
+  margin-bottom: 15px;
 }
 
 #chooseMakeCard, #chooseViewCards, #chooseViewSlider, #chooseMakeCategory, .displaySingleCard, .displayCard, .makeCategory {
