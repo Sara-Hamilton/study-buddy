@@ -157,15 +157,14 @@ function displayCurrentSelections(viewType) {
   var filteredArray = filterForCurrentSelections();
   if (filteredArray.length === 0) {
     $(".displayCard").html("<h3>No cards here!</h3>")
-  } else if (viewType === "group"){
+  } else if (viewType === "group") {
     showAll(filteredArray);
     $(".displaySingleCard").hide();
     $(".displayCard").show();
-  }
-    else if (viewType === "slider"){
-      showAll(filteredArray);
-      $(".displayCard").hide();
-      $(".displaySingleCard").show();
+  } else if (viewType === "slider") {
+    showAll(filteredArray);
+    $(".displayCard").hide();
+    $(".displaySingleCard").show();
   }
 }
 
@@ -187,7 +186,7 @@ function displaySearchResults(searchTerm) {
   } else {
     showAll(filteredArray);
   }
-  $(".displayCard").show(displaySingleCard);
+  $(".displayCard").show();
 }
 
 function createCategory() {
@@ -258,18 +257,11 @@ Subject.prototype.addCategory = function(category) {
   return Subject;
 }
 
-
-// Edit card prototype
-// Card.prototype.editCard = function(card) {
-//   document.getElementById("editTerm").value = this.term;
-//   document.getElementById("editDefinition").value = this.definition;
-// }
-
 // cards
 function makeCards() {
   var newCard = new Card("computerScience", "JavaScript", "forLoop", "for (i = 0; i < array.length; i++) {console.log(i)}", 1, false);
   cardsArray.push(newCard);
-  newCard = new Card("computerScience", "JavaScript", "parameter", "a variable that is assigned to an argument",2 , true);
+  newCard = new Card("computerScience", "JavaScript", "parameter", "a variable that is assigned to an argument", 2, true);
   cardsArray.push(newCard);
   newCard = new Card("computerScience", "JavaScript", "argument", "what is passed into a function or method", 3, true);
   cardsArray.push(newCard);
@@ -354,13 +346,6 @@ $(document).ready(function() {
     boxUpdate(cardsArray, cardTarget2, checkValidation);
   })
 
-  // //displays selected category of cards
-  // $("#chooseViewCards").click(function(event) {
-  //   event.preventDefault();
-  //   var selector = currentSelections.category;
-  //   showAll(selector);
-  // })
-
   //displays selcted category of cards in the slider
   $("#chooseViewSlider").click(function(event) {
     event.preventDefault();
@@ -436,15 +421,4 @@ $(document).ready(function() {
     event.preventDefault();
     createCategory();
   });
-
-  //edit card
-  // $("#chooseEditCard").click(function() {
-  //   $(".editCard").show();
-  // });
-  //
-  // $(".displayCard").on('click', 'button', function() {
-  //   $(".editCard").show();
-  //   cardsArray[2].editCard();
-  // });
-
 });
